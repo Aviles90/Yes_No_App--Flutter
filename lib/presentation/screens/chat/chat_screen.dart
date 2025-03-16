@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yes_no_app/domain/entities/message.dart';
-import 'package:yes_no_app/main.dart';
+// import 'package:yes_no_app/main.dart';
 import 'package:yes_no_app/presentation/providers/chat_provider.dart';
 import 'package:yes_no_app/presentation/widgets/chat/his_message_bubble.dart';
 import 'package:yes_no_app/presentation/widgets/chat/my_message_bubble.dart';
@@ -54,7 +54,10 @@ class _ChatView extends StatelessWidget {
                           ? const HisMessageBubble()
                           : MyMessageBubble(message: message);
                     })),
-            const MessageFielgBox()
+            MessageFielgBox(
+              // onValue: (value) => chatProvider.sendMessage(value),
+              onValue: chatProvider.sendMessage,
+            )
           ],
         ),
       ),
